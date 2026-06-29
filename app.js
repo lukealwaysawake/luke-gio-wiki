@@ -53,27 +53,27 @@ function setActiveToc() {
   });
 }
 
-setActiveToc();
-window.addEventListener("scroll", setActiveToc, { passive: true });
+function openHashTarget() {
+  const hash = decodeURIComponent(window.location.hash || "");
+  if (!hash || hash === "#") return;
 
-const COMMENT_PREFIX = "luke-gio-wiki-comments:";
-const COMMENT_NAME_KEY = "luke-gio-wiki-comment-name";
+  const target = document.querySelector(hash);
+  if (!target) return;
 
-function loadComments(thread) {
-  const raw = safeStorage.get(COMMENT_PREFIX + thread);
-  if (!raw) return [];
-
-  try {
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
+  const dateEntry = target.matches(".date-entry") ? target : target.closest(".date-entry");
+  if (dateEntry instanceof HTMLDetailsElement) {
+    dateEntry.open = true;
   }
 }
 
-function saveComments(thread, comments) {
-  return safeStorage.set(COMMENT_PREFIX + thread, JSON.stringify(comments));
-}
+setActiveToc();
+openHashTarget();
+window.addEventListener("scroll", setActiveToc, { passive: true });
+window.addEventListener("hashchange", openHashTarget);
+tocLinks.forEach((link) => link.addEventListener("click", () => setTimeout(openHashTarget, 0)));
+
+const COMMENT_NAME_KEY = "luke-gio-wiki-comment-name";
+const COMMENT_ENDPOINT = "/api/comments";
 
 function formatCommentTime(value) {
   const date = new Date(value);
@@ -92,11 +92,44 @@ function makeTextNode(tag, className, text) {
   return node;
 }
 
-function renderCommentBox(box) {
-  const thread = box.dataset.commentThread;
+function setCommentStatus(box, text, state = "") {
+  const status = box.querySelector(".comment-status");
+  if (!status) return;
+
+  status.textContent = text;
+  status.hidden = !text;
+  status.dataset.state = state;
+}
+
+async function fetchComments(thread) {
+  const response = await fetch(`${COMMENT_ENDPOINT}?thread=${encodeURIComponent(thread)}`, {
+    headers: { Accept: "application/json" },
+    cache: "no-store",
+  });
+
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.error || "댓글을 불러오지 못했어.");
+  return Array.isArray(data.comments) ? data.comments : [];
+}
+
+async function postComment(thread, payload) {
+  const response = await fetch(COMMENT_ENDPOINT, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ thread, ...payload }),
+  });
+
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.error || "댓글을 남기지 못했어.");
+  return Array.isArray(data.comments) ? data.comments : [];
+}
+
+function renderCommentBox(box, comments) {
   const list = box.querySelector(".comment-list");
   const count = box.querySelector(".comment-count");
-  const comments = loadComments(thread);
 
   if (count) count.textContent = `${comments.length}개`;
   if (!list) return;
@@ -104,8 +137,7 @@ function renderCommentBox(box) {
   list.replaceChildren();
 
   if (comments.length === 0) {
-    const empty = makeTextNode("li", "comment-empty", "아직 댓글 없음.");
-    list.appendChild(empty);
+    list.appendChild(makeTextNode("li", "comment-empty", "아직 댓글 없음."));
     return;
   }
 
@@ -118,18 +150,17 @@ function renderCommentBox(box) {
     meta.appendChild(makeTextNode("strong", "comment-author", comment.name || "익명"));
     meta.appendChild(makeTextNode("time", "comment-time", formatCommentTime(comment.createdAt)));
 
-    const deleteButton = document.createElement("button");
-    deleteButton.type = "button";
-    deleteButton.className = "comment-delete";
-    deleteButton.dataset.commentId = comment.id;
-    deleteButton.textContent = "삭제";
-    meta.appendChild(deleteButton);
-
     const message = makeTextNode("p", "comment-message", comment.message || "");
-
     item.append(meta, message);
     list.appendChild(item);
   }
+}
+
+function setFormBusy(form, busy) {
+  const fields = Array.from(form.elements || []);
+  fields.forEach((field) => {
+    field.disabled = busy;
+  });
 }
 
 function initCommentBox(box) {
@@ -138,10 +169,22 @@ function initCommentBox(box) {
   const nameInput = box.querySelector('input[name="name"]');
   const messageInput = box.querySelector('textarea[name="message"]');
 
+  if (!thread) return;
   if (nameInput) nameInput.value = safeStorage.get(COMMENT_NAME_KEY) || "동현";
 
-  form?.addEventListener("submit", (event) => {
+  fetchComments(thread)
+    .then((comments) => {
+      renderCommentBox(box, comments);
+      setCommentStatus(box, "");
+    })
+    .catch(() => {
+      renderCommentBox(box, []);
+      setCommentStatus(box, "댓글 서버 연결 안 됨.", "error");
+    });
+
+  form?.addEventListener("submit", async (event) => {
     event.preventDefault();
+
     const name = (nameInput?.value || "동현").trim() || "동현";
     const message = (messageInput?.value || "").trim();
 
@@ -150,32 +193,23 @@ function initCommentBox(box) {
       return;
     }
 
-    const comments = loadComments(thread);
-    comments.push({
-      id: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
-      name,
-      message,
-      createdAt: new Date().toISOString(),
-    });
+    setFormBusy(form, true);
+    setCommentStatus(box, "남기는 중...");
 
-    safeStorage.set(COMMENT_NAME_KEY, name);
-    saveComments(thread, comments);
-    if (messageInput) messageInput.value = "";
-    renderCommentBox(box);
-    messageInput?.focus();
+    try {
+      const comments = await postComment(thread, { name, message });
+      safeStorage.set(COMMENT_NAME_KEY, name);
+      if (messageInput) messageInput.value = "";
+      renderCommentBox(box, comments);
+      setCommentStatus(box, "남겼어.", "ok");
+      window.setTimeout(() => setCommentStatus(box, ""), 1800);
+    } catch {
+      setCommentStatus(box, "댓글 저장 실패. 잠깐 뒤에 다시 시도해줘.", "error");
+    } finally {
+      setFormBusy(form, false);
+      messageInput?.focus();
+    }
   });
-
-  box.querySelector(".comment-list")?.addEventListener("click", (event) => {
-    const deleteButton = event.target.closest(".comment-delete");
-    if (!deleteButton) return;
-
-    const id = deleteButton.dataset.commentId;
-    const comments = loadComments(thread).filter((comment) => comment.id !== id);
-    saveComments(thread, comments);
-    renderCommentBox(box);
-  });
-
-  renderCommentBox(box);
 }
 
 Array.from(document.querySelectorAll(".comment-box")).forEach(initCommentBox);
