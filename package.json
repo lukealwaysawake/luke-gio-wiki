@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "check": "node --check app.js && node --check api/comments.js"
+    "check": "node --check app.js && node --check landing.js && node --check kitty-frames.js && node --check api/comments.js"
   },
   "dependencies": {
     "@vercel/blob": "^2.5.0"

@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>지오와 동현 - 관계위키</title>
+    <meta
+      name="description"
+      content="지오와 동현이 같이 보낸 날들과 통화로 쌓인 마음을 모아둔 페이지"
+    />
+    <meta name="theme-color" content="#00a495" />
+    <meta property="og:title" content="지오와 동현 - 관계위키" />
+    <meta
+      property="og:description"
+      content="구리, 오니바 고백, 수족관, 제로컴플렉스, 북촌, 한옥호텔, 그리고 통화로 쌓인 마음의 기록."
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      if (location.hostname === "luke-gio-wiki.vercel.app") {
+        location.replace(`https://luke-jio-wiki.vercel.app/${location.search}${location.hash}`);
+      }
+    </script>
+    <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body class="view-mode-wiki">
+    <div class="site">
+      <header class="wiki-header">
+        <a class="logo" href="#top" aria-label="처음으로">
+          <span class="logo-symbol">ㄴ</span>
+          <span class="logo-text">관계위키</span>
+        </a>
+        <nav class="global-tabs" aria-label="상단 메뉴">
+          <a class="is-active" href="#overview">문서</a>
+          <a href="#date-log">역사</a>
+          <a href="#date-log">댓글</a>
+          <a href="https://github.com/lukealwaysawake/luke-jio-wiki" target="_blank" rel="noreferrer">편집</a>
+        </nav>
+        <button class="theme-button" type="button" aria-label="다크 모드 전환">다크</button>
+      </header>
+
+      <main id="top" class="page-grid">
+        <aside class="side" aria-label="문서 목차">
+          <section class="side-box recent">
+            <h2>최근 수정 시각</h2>
+            <p>2026-06-30 18:00:31</p>
+          </section>
+
+          <section class="side-box side-toc-box">
+            <details class="toc-details">
+              <summary>목차</summary>
+              <ol class="toc" id="toc">
+                <li><a href="#overview">개요</a></li>
+                <li><a href="#summary">요약</a></li>
+                <li><a href="#people">등장인물</a></li>
+                <li><a href="#calls">통화로 쌓인 것</a></li>
+                <li><a href="#compatibility">작은 궁합 메모</a></li>
+                <li><a href="#date-log">데이트 기록</a></li>
+                <li><a href="#meaning">남은 장면</a></li>
+                <li><a href="#style">분위기</a></li>
+              </ol>
+            </details>
+          </section>
+        </aside>
+
+        <article class="wiki-article" aria-label="지오와 동현 문서">
+          <div class="namespace-tabs" aria-label="문서 탭">
+            <a class="selected" href="#overview">문서</a>
+            <a href="#date-log">역사</a>
+            <a href="#date-log">댓글</a>
+            <a href="https://github.com/lukealwaysawake/luke-jio-wiki" target="_blank" rel="noreferrer">편집</a>
+          </div>
+
+          <div class="category-box" aria-label="분류">
+            <span>분류:</span>
+            <a href="#">연애</a>
+            <a href="#">데이트 기록</a>
+            <a href="#">2026년 관계사</a>
+            <a href="#">둘만의 기록</a>
+          </div>
+
+          <header class="doc-head">
+            <p class="revision">최근 수정 시각: 2026-06-30 18:00:31</p>
+            <h1>지오와 동현</h1>
+            <p class="subtitle">
+              과외로 시작해 고백, 휴가, 함께한 밤까지 이어진 두 사람의 기록.
+            </p>
+          </header>
+
+          <section class="notice namu-notice" aria-label="문서 메모">
+            <p>
+              둘이 같이 보낸 날들과 통화에서 쌓인 말을 모아뒀다.
+              큰 설명보다 실제 장면과 서로에게 닿은 말이 먼저 보이게 정리했다.
+            </p>
+          </section>
+
+          <details class="article-toc">
+            <summary><span>목차</span><small>클릭해서 이동 · 펼치기/접기</small></summary>
+            <ol class="toc article-toc-list">
+              <li><a href="#overview">1. 개요</a></li>
+              <li><a href="#summary">2. 요약</a></li>
+              <li><a href="#people">3. 등장인물</a>
+                <ol>
+                  <li><a href="#person-jio">3.1. 지오</a></li>
+                  <li><a href="#person-donghyun">3.2. 동현</a></li>
+                </ol>
+              </li>
+              <li><a href="#calls">4. 통화로 쌓인 것</a>
+                <ol>
+                  <li><a href="#letter-2026-06-06">4.1. 6월 6일 편지</a></li>
+                </ol>
+              </li>
+              <li><a href="#compatibility">5. 작은 궁합 메모</a></li>
+              <li><a href="#date-log">6. 데이트 기록</a>
+                <ol>
+                  <li><a href="#place-map">6.0. 장소 지도</a></li>
+                  <li><a href="#date-2026-05-19">6.1. 구리 심야 방문</a></li>
+                  <li><a href="#date-2026-05-21">6.2. 청담 오니바와 고백</a></li>
+                  <li><a href="#date-2026-05-22">6.3. 점심과 수족관</a></li>
+                  <li><a href="#date-2026-06-23">6.4. 휴가, 제로컴플렉스, 청계천</a></li>
+                  <li><a href="#date-2026-06-27">6.5. 함께한 밤, 북촌, 한옥호텔</a></li>
+                </ol>
+              </li>
+              <li><a href="#meaning">7. 남은 장면</a>
+                <ol>
+                  <li><a href="#meaning-moving">7.1. 직접 가는 마음</a></li>
+                  <li><a href="#meaning-daily">7.2. 고백 다음날</a></li>
+                  <li><a href="#meaning-morning">7.3. 다음날 아침</a></li>
+                </ol>
+              </li>
+              <li><a href="#style">8. 분위기</a></li>
+            </ol>
+          </details>
+
+          <aside class="infobox" aria-label="관계 정보 상자">
+            <div class="infobox-title">지오와 동현</div>
+            <div class="infobox-image">
+              <span>Luke</span>
+              <i></i>
+              <span>지오</span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th>관계</th>
+                  <td>공식 연애</td>
+                </tr>
+                <tr>
+                  <th>처음 가까워진 계기</th>
+                  <td>과외 / 수업 / 사적인 대화</td>
+                </tr>
+                <tr>
+                  <th>사귀기 시작한 날</th>
+                  <td>2026년 5월 21일</td>
+                </tr>
+                <tr class="auto-counter-row">
+                  <th>함께한 시간</th>
+                  <td><time class="d-day-counter" data-start-date="2026-05-21" datetime="2026-05-21">D+41</time></td>
+                </tr>
+                <tr>
+                  <th>다가오는 날</th>
+                  <td><span class="next-plan">강릉</span><span class="next-plan-note"> · 다음 휴가에 꺼내볼 이름</span></td>
+                </tr>
+                <tr>
+                  <th>오래 남은 날들</th>
+                  <td>5월 19일 · 5월 21일 · 5월 22일 · 6월 23일 · 6월 27일</td>
+                </tr>
+                <tr>
+                  <th>키워드</th>
+                  <td>구리, 청담, 수족관, 청계천, 북촌, 한옥호텔</td>
+                </tr>
+                <tr>
+                  <th>통화에서 쌓인 것</th>
+                  <td>6월 6일 편지, 기억, 예측 가능한 안정감, 짧은 공유</td>
+                </tr>
+                <tr>
+                  <th>둘의 리듬</th>
+                  <td>서로를 더 편하게 만드는 따뜻한 리듬</td>
+                </tr>
+              </tbody>
+            </table>
+          </aside>
+
+          <section id="overview" class="section-block">
+            <h2><span>1.</span> 개요</h2>
+            <p>
+              <strong>지오와 동현</strong>은 과외와 수업 사이에서 시작됐다.
+              처음엔 수업 얘기와 일정 얘기가 많았고, 어느 순간부터 서로의 취향과 말투, 오래 기억한 장면이 끼어들었다.
+            </p>
+            <p>
+              2026년 5월 19일 밤 구리에서 만난 뒤로 분위기가 확실히 달라졌고,
+              5월 21일 청담 오니바 저녁과 고백으로 둘은 공식적으로 사귀게 됐다.
+              그 뒤에는 수족관 데이트, 휴가의 시간, 함께한 밤이 이어졌다.
+              이 관계는 <mark>크게 선언한 말보다 실제로 움직이고 기억해준 장면</mark>이 더 오래 남는 쪽에 가깝다.
+            </p>
+          </section>
+
+          <section id="summary" class="section-block">
+            <h2><span>2.</span> 요약</h2>
+            <div class="quote-summary">
+              <p>
+                “오래 남는 건 밤늦게 찾아간 일, 손잡고 걸은 일,
+                꽃과 케이크를 준비한 일, 그리고 통화 끝에 마음이 조금 더 편해진 일이다.”
+              </p>
+            </div>
+
+            <table class="wiki-table key-table">
+              <tbody>
+                <tr>
+                  <th>첫 번째 전환</th>
+                  <td>5월 19일 밤, 동현이 구리로 찾아가 지오를 만남.</td>
+                </tr>
+                <tr>
+                  <th>사귀기 시작한 날</th>
+                  <td>5월 21일 청담 오니바에서 밥을 먹고, 꽃과 케이크 뒤에 고백함.</td>
+                </tr>
+                <tr>
+                  <th>6월 6일 편지</th>
+                  <td>구리에서 느낀 마음과 고백을 준비하던 동현의 시점을 여름 초입의 편지로 남김.</td>
+                </tr>
+                <tr>
+                  <th>마음이 놓인 다음날</th>
+                  <td>5월 22일 점심과 수족관 데이트로 전날의 고백이 일상으로 이어짐.</td>
+                </tr>
+                <tr>
+                  <th>통화에서 쌓인 것</th>
+                  <td>편지와 장문 메시지, 기억해둔 디테일, 짧은 공유가 통화 안에서 계속 쌓임.</td>
+                </tr>
+                <tr>
+                  <th>6월 휴가</th>
+                  <td>6월 23일 제로컴플렉스와 청계천 근처 숙소, 영쉘던, 아사이볼, 복귀.</td>
+                </tr>
+                <tr>
+                  <th>6월 함께한 밤</th>
+                  <td>6월 27일 북촌 한식 오마카세, 기가스, 한옥호텔, 다음날 파스타와 카페.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="people" class="section-block">
+            <h2><span>3.</span> 등장인물</h2>
+            <h3 id="person-jio">3.1. 지오</h3>
+            <p>
+              내가 좋아하는 지오는 부드럽게 말하지만 원하는 건 또렷한 사람이다.
+              큰 확신을 들이밀 때보다, “아 내 말 기억하고 있었네” 하는 작은 순간에 더 환해진다.
+            </p>
+            <ul class="namu-list">
+              <li>내가 흘려듣지 않고 기억해뒀다가 다시 꺼내면, 제일 크게 웃는다.</li>
+              <li>설렘이랑 편안함을 둘 다 가져가도 된다고 알려준 사람.</li>
+              <li>솔직하게 말해주면, 나도 그만큼 더 솔직해진다.</li>
+              <li>좋은 면만 보이려는 게 아니라, 약한 면까지 천천히 보여줘도 되는 사이가 되고 싶게 만든다.</li>
+            </ul>
+
+            <h3 id="person-donghyun">3.2. 동현</h3>
+            <p>
+              나는 좋아하는 사람한테는 시간을 쓰고, 직접 가고, 장소를 고르는 쪽으로 마음을 표현한다.
+              말이랑 글이 길어질 때도 있는데, 결국 하고 싶은 말은 “너를 오래 보고 있었다”는 거다.
+            </p>
+            <ul class="namu-list">
+              <li>편지, 장문 메시지, 장소 선택처럼 오래 남는 걸로 마음을 남긴다.</li>
+              <li>지오가 했던 말이랑 취향을 기억해뒀다 다시 꺼내는 걸 좋아한다.</li>
+              <li>대신 불안할 땐 긴 설명보다 그냥 옆에 있는 게 나을 때가 많다는 걸, 지금도 배우는 중이다.</li>
+            </ul>
+          </section>
+
+          <section id="calls" class="section-block">
+            <h2><span>4.</span> 통화로 쌓인 것</h2>
+            <p>
+              둘 사이에서 통화는 단순히 연락 시간을 채우는 일이 아니었다.
+              마음이 무거운 날에는 풀리는 쪽으로, 좋은 날에는 더 길게 보고 싶어지는 쪽으로 흘렀다.
+            </p>
+
+            <div class="call-grid">
+              <article class="call-card">
+                <h3>편지를 여러 번 읽은 사람</h3>
+                <p>
+                  내가 보낸 장문 카톡과 편지를 지오가 여러 번 다시 봤고, 비행기 안에서도 반복해서 읽었다고 말했다.
+                  짧은 정답보다 장면과 마음이 쌓인 말이 오래 닿았던 순간이다.
+                </p>
+              </article>
+
+              <article class="call-card">
+                <h3>말이 흘러가는 통화</h3>
+                <p>
+                  셀로그, 책, 언어 공부, 영화, 창작, 가족에게 소개되는 이미지까지 주제가 자연스럽게 이어졌다.
+                  억지로 깊은 얘기를 꺼내기보다, 일상에서 가치관으로 미끄러질 때 우리 대화가 가장 편했다.
+                </p>
+              </article>
+
+              <article class="call-card">
+                <h3>기억된다는 느낌</h3>
+                <p>
+                  내가 지오를 메모하고 기억해둔다는 걸 말했을 때, 그걸 귀엽다고 받아준 표정이 오래 남았다.
+                  “많이 생각하니까”처럼 짧고 낮은 온도의 말이 오히려 더 잘 닿았다.
+                </p>
+              </article>
+
+              <article class="call-card">
+                <h3>안정감의 이름</h3>
+                <p>
+                  우리가 말한 안정감은 관계가 재미없다는 뜻이 아니라, 다음이 예측 가능하다는 뜻에 가까웠다.
+                  지금 뭐 하는지 짧게 나누고 미리 말해주는 것만으로, 둘 다 마음이 한결 가벼워졌다.
+                </p>
+              </article>
+
+              <article class="call-card">
+                <h3>좋은 면만 보는 게 아니라</h3>
+                <p>
+                  완벽해서 좋아하는 게 아니다.
+                  좋은 면도 약한 면도 천천히 다 알아가고 싶고, 그래야 더 오래 갈 것 같다.
+                  지오를 이상으로 박제하는 게 아니라, 진짜 지오를 보고 싶다.
+                </p>
+              </article>
+
+              <article class="call-card">
+                <h3>결국 다시 일상으로</h3>
+                <p>
+                  무거운 대화가 지나간 뒤에도 둘은 시험, 건강, 사진, 다음 휴가, 강릉 같은 이야기로 돌아왔다.
+                  큰 확인보다 작은 공유가 관계를 다시 편하게 만든다.
+                </p>
+              </article>
+            </div>
+            <article id="letter-2026-06-06" class="letter-panel" aria-label="2026년 6월 6일 편지">
+              <p class="letter-eyebrow">2026.06.06 · 동현의 시점</p>
+              <h3>6월 6일 편지</h3>
+              <p class="letter-lead">
+                이 편지는 5월 19일 구리에서 다시 만난 순간과 5월 21일 고백 데이트를,
+                동현이 나중에 여름의 초입에서 다시 적어둔 기록이다.
+                핵심은 이벤트보다 그때 마음이 어떤 순서로 커졌는지다.
+              </p>
+
+              <p class="letter-only-note">
+                전문은 여기 한 곳에만 접어뒀다. 관련 날짜에서는 이 섹션으로만 연결해서,
+                같은 문장이 반복되며 무게가 빠지지 않게 했다.
+              </p>
+
+              <details class="letter-original">
+                <summary>웹용으로 다듬은 편지 전문 보기</summary>
+                <div class="letter-body">
+                  <p>처음 우리가 연락했을 땐 봄이었는데, 이젠 여름이다. 여름의 초입에서 두 번째 편지를 쓴다.</p>
+                  <p>오랜만에 다시 본 5월 19일의 지오는 변함없이 아름다웠어. 잘 어울리는 갈색 머리, 오똑한 코와 눈, 내가 수십 번 봤던 사진 속 지오가 현실에서도 그대로 예쁘더라. 그래서 멀리서도 한눈에 알아봤어. 그날따라 재잘거리던 작은 소녀가 어찌나 예뻐 보이던지, 얼른 안아버리고 싶었어. 너의 이야기에 발맞춰 걸으며 속삭이던 그 순간들이 아직도 잊히지가 않아.</p>
+                  <p>처음 가본 구리, 누구의 눈치도 볼 필요 없는 공간과 시간이었기에, 그토록 사랑스러운 너를 그냥 안아버렸어. 그날 어찌나 사랑한다고 말하고 싶던지. 아직 사랑이라는 말의 뜻을 다 모르는 나지만, 네가 지금 가진 그 모습을 잃지 않게 내가 가진 모든 걸 다 해서 지켜주고 싶다는 마음이 들었어. 그게 그냥 사랑인 것 같아. 그날은 그 마음을 공원에 심어두고, 함께할 식사날을 기다리기로 했어.</p>
+                  <p>두 번째 날은 네가 보낸 2026년의 하루 중 가장 기억에 남는 하루로 만들어주고 싶었어. 어떤 선물을 줄지, 어떤 내용으로 편지를 쓸지, 어떤 꽃을 좋아할지, 어떤 케이크를 좋아할지. 고민하던 그 시간들이 난 너무 행복했어. 그 마음이 너에게 온전히 전해지길 바랐던 것 같아. 그 진심이, 내가 사랑하는 너에게 기억되는 하루를 만들 거라고 믿었어.</p>
+                  <p>누군가를 이렇게 좋아하는 건 처음이야. 한 달 전엔 괜찮다고 했지. “괜찮아요” 그랬지만, 사실 난 안 괜찮았어. 많이 힘들었었어. 그래서 내가 가장 힘들 때 손을 내밀어준 너에게 너무 고마웠고, 그런 너에게 내 모든 진심을 전하고 싶었어. 식당에서, 저녁 먹고 손 잡고 걷던 거리에서, 함께 간 바에서. 모든 순간에 네가 알려준 투명한 솔직함, 그 상태였던 것 같아. 그런 너의 조언 덕분에 너에게 고백할 수 있었어.</p>
+                  <p>조금씩 너를 알아갈수록, 매일 다른 너를 사랑하게 돼. 우리의 사랑은 복리일 거야. 더 빠르게, 더 많이, 더 오래 쌓인 만큼 커질 거야. 거기에 난 내 진심을 담아보려 해.</p>
+                  <p class="letter-signature">많이 사랑해 지오</p>
+                </div>
+              </details>
+            </article>
+          </section>
+
+          <section id="compatibility" class="section-block compatibility-section">
+            <h2><span>5.</span> 작은 궁합 메모</h2>
+            <p class="compatibility-lead">
+              사주표는 결론표라기보다, 우리 관계를 조금 다르게 바라보는 작은 핑계에 가깝다.
+              중요한 건 용어나 점수보다 둘이 같이 있을 때 생기는 온도다.
+            </p>
+
+
+            <div class="compatibility-prose">
+              <section>
+                <h3>닮은 온도</h3>
+                <p>우리 둘은 큰 선언보다 작은 기억에 더 잘 움직이는 쪽이다. 누가 뭘 좋아했는지, 어떤 말을 오래 붙잡고 있었는지, 그걸 다시 꺼내는 순간에 관계가 한 번 더 가까워진다.</p>
+              </section>
+              <section>
+                <h3>서로를 살리는 방식</h3>
+                <p>동현은 먼저 움직이고 장면을 만들어 마음을 보여주는 사람이고, 지오는 그 마음을 밝게 받아주면서 분위기를 살아나게 한다. 한쪽이 밀어붙이는 관계라기보다, 누가 먼저 따뜻해지면 다른 한쪽도 자연스럽게 더 부드러워지는 리듬에 가깝다.</p>
+              </section>
+              <section>
+                <h3>오래 가려면</h3>
+                <p>둘 다 솔직한 편이라 가끔 말이 팽팽해질 수는 있다. 그래도 이 관계는 이기는 쪽을 정하는 것보다, 빨리 손 내밀고 다시 일상으로 돌아오는 쪽이 더 잘 맞는다. 짧게 공유하고, 오래 기억하고, 서운한 건 너무 늦기 전에 말하는 것. 그 정도가 우리한테 제일 현실적인 약속이다.</p>
+              </section>
+            </div>
+          </section>
+
+          <section id="date-log" class="section-block">
+            <h2><span>6.</span> 데이트 기록</h2>
+            <div class="date-log-head">
+              <p>
+                날짜별로 접어볼 수 있게 정리했다.
+                보고 싶은 날만 펼치면 된다.
+              </p>
+              <div class="view-switch" role="group" aria-label="데이트 기록 보기 방식">
+                <button type="button" class="is-active" data-view-mode="wiki" aria-pressed="true">위키 뷰</button>
+                <button type="button" data-view-mode="timeline" aria-pressed="false">연대기 뷰</button>
+              </div>
+            </div>
+
+            <details class="section-toc date-toc">
+              <summary>데이트 기록 목차</summary>
+              <ol class="toc">
+                <li><a href="#place-map">6.0. 장소 지도</a></li>
+                <li><a href="#date-2026-05-19">6.1. 2026.05.19 구리 심야 방문</a></li>
+                <li><a href="#date-2026-05-21">6.2. 2026.05.21 청담 오니바와 고백</a></li>
+                <li><a href="#date-2026-05-22">6.3. 2026.05.22 점심과 수족관</a></li>
+                <li><a href="#date-2026-06-23">6.4. 2026.06.23 휴가, 제로컴플렉스, 청계천</a></li>
+                <li><a href="#date-2026-06-27">6.5. 2026.06.27-28 함께한 밤, 북촌, 한옥호텔</a></li>
+              </ol>
+            </details>
+
+            <details id="place-map" class="place-map" aria-label="둘이 다녀온 장소 지도" open>
+              <summary class="place-map-summary">
+                <span>6.0. 장소 지도</span>
+                <small>서울 실지도에서 위치 보기</small>
+              </summary>
+              <div class="place-map-body">
+                <div class="place-map-copy">
+                  <p>실제 지도 위에 둘이 지나간 장소를 찍어뒀다. 핀을 누르면 그날 기록으로 바로 이동할 수 있다.</p>
+                </div>
+                <div id="places-real-map" class="real-map" role="img" aria-label="구리, 청담, 수족관, 청계천, 북촌 위치가 표시된 서울 지도">
+                  <p class="map-loading">지도 준비 중...</p>
+                </div>
+                <ul class="map-link-list" aria-label="지도 바로가기">
+                  <li><a href="https://www.google.com/maps/search/?api=1&query=37.6032591,127.1433609" target="_blank" rel="noreferrer">구리</a></li>
+                  <li><a href="https://www.google.com/maps/search/?api=1&query=37.5257536,127.0523217" target="_blank" rel="noreferrer">청담</a></li>
+                  <li><a href="https://www.google.com/maps/search/?api=1&query=37.5131846,127.0586092" target="_blank" rel="noreferrer">수족관</a></li>
+                  <li><a href="https://www.google.com/maps/search/?api=1&query=37.5684359,126.9939503" target="_blank" rel="noreferrer">청계천</a></li>
+                  <li><a href="https://www.google.com/maps/search/?api=1&query=37.5823919,126.9858648" target="_blank" rel="noreferrer">북촌</a></li>
+                </ul>
+              </div>
+            </details>
+
+            <div class="timeline-list">
+              <details id="date-2026-05-19" class="date-entry">
+                <summary class="date-summary">
+                  <span class="date-badge">2026.05.19</span>
+                  <span class="date-summary-text">
+                    <span class="date-entry-title">구리 심야 방문</span>
+                  </span>
+                </summary>
+                <div class="date-body">
+                  <p>
+                    밤늦게 구리까지 간 날. 아직 사귀자는 말은 없었지만,
+                    굳이 거기까지 갔다는 것만으로 이미 분위기는 많이 바뀌어 있었다.
+                  </p>
+                  <aside class="perspective-note perspective-note-link">
+                    <strong>6월 6일 편지와 연결되는 장면</strong>
+                    <p>이날의 자세한 마음은 <a href="#letter-2026-06-06">6월 6일 편지 전문</a>에서만 이어진다.</p>
+                  </aside>
+                  <dl>
+                    <div><dt>장소</dt><dd>구리</dd></div>
+                    <div><dt>남은 것</dt><dd>늦은 시간의 이동, 직접 만난 것, 달라진 분위기</dd></div>
+                  </dl>
+                  <details class="comment-box" data-comment-thread="date-2026-05-19" aria-label="구리 심야 방문 댓글">
+                    <summary class="comment-head">
+                      <span class="comment-title">댓글</span>
+                      <span class="comment-count" aria-live="polite">0개</span>
+                    </summary>
+                    <p class="comment-status" aria-live="polite" hidden></p>
+                    <form class="comment-form">
+                      <div class="comment-form-row">
+                        <label class="comment-author-label">
+                          <span>작성자</span>
+                          <select name="name" autocomplete="name" required>
+                            <option value="동현">동현</option>
+                            <option value="지오">지오</option>
+                          </select>
+                        </label>
+                        <label>
+                          <span>댓글</span>
+                          <textarea name="message" rows="3" maxlength="600" required placeholder="이날 생각나는 말"></textarea>
+                        </label>
+                      </div>
+                      <button type="submit">남기기</button>
+                    </form>
+                    <ul class="comment-list"></ul>
+                  </details>
+                </div>
+              </details>
+
+              <details id="date-2026-05-21" class="date-entry highlight">
+                <summary class="date-summary">
+                  <span class="date-badge">2026.05.21</span>
+                  <span class="date-summary-text">
+                    <span class="date-entry-title">청담 오니바와 고백</span>
+                  </span>
+                </summary>
+                <div class="date-body">
+                  <p>
+                    청담 오니바에서 저녁을 먹고 손잡고 걸었다. 동현은 꽃을 건넸고,
+                    이어 바에서 케이크를 준비해 고백했다. 이날부터 둘은 공식적으로 사귀게 됐다.
+                  </p>
+                  <p>
+                    그 뒤에는 호텔 스위트룸에서 영화를 보며 같이 있었다.
+                    고백 자체도 컸지만, 고백하고 나서도 자연스럽게 옆에 머문 시간이 더 좋았다.
+                  </p>
+                  <aside class="perspective-note perspective-note-link">
+                    <strong>6월 6일 편지와 연결되는 장면</strong>
+                    <p>이날의 자세한 마음은 <a href="#letter-2026-06-06">6월 6일 편지 전문</a>에서만 이어진다.</p>
+                  </aside>
+                  <dl>
+                    <div><dt>장소</dt><dd>청담 오니바 · 바 · 호텔 스위트룸</dd></div>
+                    <div><dt>소품</dt><dd>꽃 · 케이크 · 영화</dd></div>
+                    <div><dt>결과</dt><dd>공식 연애 시작</dd></div>
+                  </dl>
+                  <details class="comment-box" data-comment-thread="date-2026-05-21" aria-label="청담 오니바와 고백 댓글">
+                    <summary class="comment-head">
+                      <span class="comment-title">댓글</span>
+                      <span class="comment-count" aria-live="polite">0개</span>
+                    </summary>
+                    <p class="comment-status" aria-live="polite" hidden></p>
+                    <form class="comment-form">
+                      <div class="comment-form-row">
+                        <label class="comment-author-label">
+                          <span>작성자</span>
+                          <select name="name" autocomplete="name" required>
+                            <option value="동현">동현</option>
+                            <option value="지오">지오</option>
+                          </select>
+                        </label>
+                        <label>
+                          <span>댓글</span>
+                          <textarea name="message" rows="3" maxlength="600" required placeholder="이날 생각나는 말"></textarea>
+                        </label>
+                      </div>
+                      <button type="submit">남기기</button>
+                    </form>
+                    <ul class="comment-list"></ul>
+                  </details>
+                </div>
+              </details>
+
+              <details id="date-2026-05-22" class="date-entry">
+                <summary class="date-summary">
+                  <span class="date-badge">2026.05.22</span>
+                  <span class="date-summary-text">
+                    <span class="date-entry-title">점심과 수족관</span>
+                  </span>
+                </summary>
+                <div class="date-body">
+                  <p>
+                    전날 고백의 여운이 남아 있는 상태로 같이 점심을 먹고 수족관에 갔다.
+                    큰 이벤트 다음날에도 밥을 먹고 천천히 걷는 시간이 이어졌다.
+                    그래서 이 날은 고백이 하루짜리 장면으로 끝나지 않았다는 느낌이 있다.
+                  </p>
+                  <dl>
+                    <div><dt>코스</dt><dd>점심 · 수족관</dd></div>
+                    <div><dt>느낌</dt><dd>고백 다음날에도 자연스럽게 이어진 하루</dd></div>
+                  </dl>
+                  <details class="comment-box" data-comment-thread="date-2026-05-22" aria-label="점심과 수족관 댓글">
+                    <summary class="comment-head">
+                      <span class="comment-title">댓글</span>
+                      <span class="comment-count" aria-live="polite">0개</span>
+                    </summary>
+                    <p class="comment-status" aria-live="polite" hidden></p>
+                    <form class="comment-form">
+                      <div class="comment-form-row">
+                        <label class="comment-author-label">
+                          <span>작성자</span>
+                          <select name="name" autocomplete="name" required>
+                            <option value="동현">동현</option>
+                            <option value="지오">지오</option>
+                          </select>
+                        </label>
+                        <label>
+                          <span>댓글</span>
+                          <textarea name="message" rows="3" maxlength="600" required placeholder="이날 생각나는 말"></textarea>
+                        </label>
+                      </div>
+                      <button type="submit">남기기</button>
+                    </form>
+                    <ul class="comment-list"></ul>
+                  </details>
+                </div>
+              </details>
+
+              <details id="date-2026-06-23" class="date-entry">
+                <summary class="date-summary">
+                  <span class="date-badge">2026.06.23</span>
+                  <span class="date-summary-text">
+                    <span class="date-entry-title">휴가, 제로컴플렉스, 청계천</span>
+                  </span>
+                </summary>
+                <div class="date-body">
+                  <p>
+                    동현이 휴가를 나와 저녁에 지오와 제로컴플렉스에 갔다.
+                    이후 청계천 근처 숙소에서 쉬고, 넷플릭스로 영쉘던을 봤다.
+                  </p>
+                  <p>
+                    다음날 아침에는 동현이 아사이볼을 시켜줬다.
+                    조금 더 같이 있다가 복귀했고, 이 날은 저녁보다 다음날 아침까지 이어진 흐름이 더 오래 남는다.
+                  </p>
+                  <section class="media-card" aria-label="2026년 6월 23일 장면">
+                    <h4>그날 장면</h4>
+                    <p class="media-note">
+                      저녁부터 다음날 아침까지 이어진 흐름대로 묶었다.
+                    </p>
+                    <div class="media-gallery">
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-23-cheonggyecheon-lounge-display.jpg" alt="2026년 6월 23일 데이트 기록: 청계천 인근 실내 라운지." loading="lazy" />
+                      <figcaption><strong>13:44</strong><span>청계천 인근 실내 라운지.</span></figcaption>
+                    </figure>
+                    <figure class="media-item media-item-video">
+                      <video controls preload="metadata">
+                        <source src="./assets/media/2026-06-23-1347-lounge-original.mp4" type="video/mp4" />
+                      </video>
+                      <figcaption><strong>13:47</strong><span>창가와 햇살이 보이는 실내 라운지 영상.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-23-1909-table-wine-display.jpg" alt="2026년 6월 23일 데이트 기록: 저녁 코스가 시작되기 전 테이블과 와인 페어링." loading="lazy" />
+                      <figcaption><strong>19:09</strong><span>저녁 코스가 시작되기 전 테이블과 와인 페어링.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-23-1912-amuse-stick-display.jpg" alt="2026년 6월 23일 데이트 기록: 손으로 집어 먹는 작은 스낵." loading="lazy" />
+                      <figcaption><strong>19:12</strong><span>손으로 집어 먹는 작은 스낵.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-23-1927-soup-course-display.jpg" alt="2026년 6월 23일 데이트 기록: 노란 소스와 거품의 따뜻한 수프 코스." loading="lazy" />
+                      <figcaption><strong>19:27</strong><span>노란 소스와 거품의 따뜻한 수프 코스.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-23-1938-herb-appetizer-display.jpg" alt="2026년 6월 23일 데이트 기록: 알과 허브를 올린 섬세한 전채." loading="lazy" />
+                      <figcaption><strong>19:38</strong><span>알과 허브를 올린 섬세한 전채.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-23-1951-crisp-bite-display.jpg" alt="2026년 6월 23일 데이트 기록: 저녁 코스의 바삭한 한입." loading="lazy" />
+                      <figcaption><strong>19:51</strong><span>저녁 코스의 바삭한 한입.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-23-2007-green-dish-display.jpg" alt="2026년 6월 23일 데이트 기록: 초록 허브 소스의 싱그러운 접시." loading="lazy" />
+                      <figcaption><strong>20:07</strong><span>초록 허브 소스의 싱그러운 접시.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-23-2022-main-dish-display.jpg" alt="2026년 6월 23일 데이트 기록: 진한 소스와 함께 나온 메인 디시." loading="lazy" />
+                      <figcaption><strong>20:22</strong><span>진한 소스와 함께 나온 메인 디시.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-23-2051-dessert-display.jpg" alt="2026년 6월 23일 데이트 기록: 파란 꽃잎을 올린 달콤한 마무리." loading="lazy" />
+                      <figcaption><strong>20:51</strong><span>파란 꽃잎을 올린 달콤한 마무리.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-23-2108-menu-display.jpg" alt="2026년 6월 23일 데이트 기록: 그날의 코스 메뉴." loading="lazy" />
+                      <figcaption><strong>21:08</strong><span>그날의 코스 메뉴.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-23-2303-gifts-display.jpg" alt="2026년 6월 23일 데이트 기록: 밤에 꺼내 본 작은 선물과 기념품들." loading="lazy" />
+                      <figcaption><strong>23:03</strong><span>밤에 꺼내 본 작은 선물과 기념품들.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-24-0953-flowers-display.jpg" alt="2026년 6월 23일 데이트 기록: 데이트의 여운을 남긴 꽃다발." loading="lazy" />
+                      <figcaption><strong>다음날 09:53</strong><span>데이트의 여운을 남긴 꽃다발.</span></figcaption>
+                    </figure>
+                    </div>
+                  </section>
+                  <dl>
+                    <div><dt>코스</dt><dd>제로컴플렉스 · 청계천 근처 숙소 · 영쉘던</dd></div>
+                    <div><dt>다음날</dt><dd>아사이볼 · 함께 있다가 복귀</dd></div>
+                    <div><dt>느낌</dt><dd>휴가의 시간을 같이 쓴 날</dd></div>
+                  </dl>
+                  <details class="comment-box" data-comment-thread="date-2026-06-23" aria-label="휴가, 제로컴플렉스, 청계천 댓글">
+                    <summary class="comment-head">
+                      <span class="comment-title">댓글</span>
+                      <span class="comment-count" aria-live="polite">0개</span>
+                    </summary>
+                    <p class="comment-status" aria-live="polite" hidden></p>
+                    <form class="comment-form">
+                      <div class="comment-form-row">
+                        <label class="comment-author-label">
+                          <span>작성자</span>
+                          <select name="name" autocomplete="name" required>
+                            <option value="동현">동현</option>
+                            <option value="지오">지오</option>
+                          </select>
+                        </label>
+                        <label>
+                          <span>댓글</span>
+                          <textarea name="message" rows="3" maxlength="600" required placeholder="이날 생각나는 말"></textarea>
+                        </label>
+                      </div>
+                      <button type="submit">남기기</button>
+                    </form>
+                    <ul class="comment-list"></ul>
+                  </details>
+                </div>
+              </details>
+
+              <details id="date-2026-06-27" class="date-entry">
+                <summary class="date-summary">
+                  <span class="date-badge">2026.06.27-28</span>
+                  <span class="date-summary-text">
+                    <span class="date-entry-title">함께한 밤, 북촌, 한옥호텔</span>
+                  </span>
+                </summary>
+                <div class="date-body">
+                  <p>
+                    동현과 지오는 북촌에서 한식 오마카세를 먹었다.
+                    저녁에는 기가스에 갔고, 밤에는 한옥호텔에서 함께 시간을 보냈다.
+                  </p>
+                  <p>
+                    다음날에는 파스타를 먹고 카페에 갔다가 각자 자리로 돌아갔다.
+                    함께한 밤이 너무 과하게 끝나지 않고, 다음날 점심과 카페까지 자연스럽게 이어진 날이다.
+                  </p>
+                  <section class="media-card" aria-label="2026년 6월 27일 장면">
+                    <h4>그날 장면</h4>
+                    <p class="media-note">
+                      낮 식사, 한옥호텔, 기가스 저녁 순서대로 묶었다.
+                    </p>
+                    <div class="media-gallery">
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-27-1340-bukchon-appetizer-display.jpg" alt="2026년 6월 27일 데이트 기록: 북촌 점심의 작은 전채." loading="lazy" />
+                      <figcaption><strong>13:40</strong><span>북촌 점심의 작은 전채.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-27-1350-bukchon-noodles-display.jpg" alt="2026년 6월 27일 데이트 기록: 맑은 장국과 면 요리." loading="lazy" />
+                      <figcaption><strong>13:50</strong><span>맑은 장국과 면 요리.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-27-1413-bukchon-octopus-rice-display.jpg" alt="2026년 6월 27일 데이트 기록: 문어와 밥, 곁들임 반찬." loading="lazy" />
+                      <figcaption><strong>14:13</strong><span>문어와 밥, 곁들임 반찬.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-27-1551-hanok-courtyard-display.jpg" alt="2026년 6월 27일 데이트 기록: 한옥호텔 안에서 바라본 대나무 정원." loading="lazy" />
+                      <figcaption><strong>15:51</strong><span>한옥호텔 안에서 바라본 대나무 정원.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-27-1910-gigas-note-display.jpg" alt="2026년 6월 27일 데이트 기록: 기가스 손글씨 카드." loading="lazy" />
+                      <figcaption><strong>19:10</strong><span>기가스에서 남은 손글씨 카드.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-27-1915-gigas-menu-display.jpg" alt="2026년 6월 27일 데이트 기록: 기가스 메뉴와 셰프의 손글씨 카드." loading="lazy" />
+                      <figcaption><strong>19:15</strong><span>기가스 메뉴와 셰프의 손글씨 카드.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-27-1918-gigas-small-bites-display.jpg" alt="2026년 6월 27일 데이트 기록: 자연석 위에 올린 기가스의 작은 바이트들." loading="lazy" />
+                      <figcaption><strong>19:18</strong><span>자연석 위에 올린 작은 바이트들.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-27-1926-gigas-yellow-dish-display.jpg" alt="2026년 6월 27일 데이트 기록: 노란 소스와 꽃잎을 올린 기가스 코스." loading="lazy" />
+                      <figcaption><strong>19:26</strong><span>노란 소스와 꽃잎을 올린 코스.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-27-2054-gigas-main-display.jpg" alt="2026년 6월 27일 데이트 기록: 옥수수와 고기를 곁들인 기가스 메인 코스." loading="lazy" />
+                      <figcaption><strong>20:54</strong><span>옥수수와 고기를 곁들인 메인 코스.</span></figcaption>
+                    </figure>
+                    <figure class="media-item">
+                      <img src="./assets/photos/2026-06-27-2136-gigas-dessert-display.jpg" alt="2026년 6월 27일 데이트 기록: 붉은 과일과 소스의 디저트." loading="lazy" />
+                      <figcaption><strong>21:36</strong><span>붉은 과일과 소스의 디저트.</span></figcaption>
+                    </figure>
+                    </div>
+                  </section>
+                  <dl>
+                    <div><dt>코스</dt><dd>북촌 한식 오마카세 · 기가스 · 한옥호텔</dd></div>
+                    <div><dt>다음날</dt><dd>파스타 · 카페 · 각자 복귀</dd></div>
+                    <div><dt>느낌</dt><dd>다음날 점심과 카페까지 이어진 함께한 밤</dd></div>
+                  </dl>
+                  <details class="comment-box" data-comment-thread="date-2026-06-27" aria-label="함께한 밤, 북촌, 한옥호텔 댓글">
+                    <summary class="comment-head">
+                      <span class="comment-title">댓글</span>
+                      <span class="comment-count" aria-live="polite">0개</span>
+                    </summary>
+                    <p class="comment-status" aria-live="polite" hidden></p>
+                    <form class="comment-form">
+                      <div class="comment-form-row">
+                        <label class="comment-author-label">
+                          <span>작성자</span>
+                          <select name="name" autocomplete="name" required>
+                            <option value="동현">동현</option>
+                            <option value="지오">지오</option>
+                          </select>
+                        </label>
+                        <label>
+                          <span>댓글</span>
+                          <textarea name="message" rows="3" maxlength="600" required placeholder="이날 생각나는 말"></textarea>
+                        </label>
+                      </div>
+                      <button type="submit">남기기</button>
+                    </form>
+                    <ul class="comment-list"></ul>
+                  </details>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <section id="meaning" class="section-block">
+            <h2><span>7.</span> 남은 장면</h2>
+            <h3 id="meaning-moving">7.1. 직접 가는 마음</h3>
+            <p>
+              5월 19일 구리, 6월 23일 휴가, 6월 27일 함께한 밤은 모두 직접 시간을 내고 움직인 날이다.
+              이 관계에서 마음은 말보다 동선으로 먼저 보인다.
+            </p>
+
+            <h3 id="meaning-daily">7.2. 고백 다음날</h3>
+            <p>
+              5월 21일에는 꽃, 케이크, 고백이 있었다.
+              그런데 더 좋은 건 바로 다음날 점심과 수족관이 이어졌다는 점이다.
+              고백이 이벤트로만 남지 않고 하루의 리듬으로 넘어갔다.
+            </p>
+
+            <h3 id="meaning-morning">7.3. 다음날 아침</h3>
+            <p>
+              6월 24일 아침의 아사이볼은 작지만 선명하다.
+              밤의 분위기보다 다음날 아침을 어떻게 챙겼는지가 오래 남을 때가 있다.
+            </p>
+          </section>
+
+          <section id="style" class="section-block">
+            <h2><span>8.</span> 분위기</h2>
+            <div class="feature-grid">
+              <section>
+                <h3>낮은 온도의 낭만</h3>
+                <p>손잡고 걷기, 숙소에서 영화 보기, 다음날 밥 챙기기 같은 장면이 오래 남는다.</p>
+              </section>
+              <section>
+                <h3>기억된 디테일</h3>
+                <p>식당 이름, 장소, 아침 메뉴처럼 작은 것들이 둘 사이의 실제 질감을 만든다.</p>
+              </section>
+              <section>
+                <h3>고백과 사적인 시간</h3>
+                <p>오니바 고백처럼 딱 남는 장면도 있고, 숙소, 카페, 아침처럼 조용한 시간도 있다.</p>
+              </section>
+              <section>
+                <h3>복귀가 있는 연애</h3>
+                <p>휴가와 함께한 밤 뒤에는 늘 복귀가 있다. 그래서 같이 있는 시간이 더 압축된다.</p>
+              </section>
+            </div>
+          </section>
+
+          <footer class="wiki-footer">
+            <p>마지막 편집: 2026년 6월 30일</p>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <div class="media-lightbox" id="media-lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+      <button class="lightbox-close" type="button" aria-label="닫기">×</button>
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="이전 사진">‹</button>
+      <figure class="lightbox-figure">
+        <img alt="" />
+        <figcaption></figcaption>
+      </figure>
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="다음 사진">›</button>
+    </div>
+  </body>
+</html>
