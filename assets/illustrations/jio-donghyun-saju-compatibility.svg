@@ -61,6 +61,17 @@
     <text class="small" x="4" y="154">나무가 불을 살리듯, 마음의 온도가 같이 올라가는 조합</text>
   </g>
 
+  <!-- big readable stickers -->
+  <g transform="translate(878 106) rotate(2)" filter="url(#shadow)">
+    <path d="M2 22 C52 -12 365 -4 410 30 C452 62 417 118 210 122 C70 125 -42 86 2 22Z" fill="#fff0a8" stroke="#45372d" stroke-width="3.5" filter="url(#rough)" />
+    <text class="label" x="30" y="76">영혼의 싱크로율</text>
+  </g>
+  <g transform="translate(940 212) rotate(-3)" filter="url(#shadow)">
+    <path d="M0 18 C52 -14 322 -7 362 34 C400 72 354 132 184 138 C58 142 -48 92 0 18Z" fill="#dff0ff" stroke="#45372d" stroke-width="3.5" filter="url(#rough)" />
+    <text class="warningLabel blue" x="32" y="66">강대강 주의</text>
+    <text class="subnote" x="38" y="108">냉전은 짧게</text>
+  </g>
+
   <!-- tree / wood side -->
   <g transform="translate(102 255)">
     <path class="pen" d="M122 506 C119 398 133 290 117 186 C109 136 88 92 57 48" />
