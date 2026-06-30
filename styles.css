@@ -241,27 +241,6 @@ a {
   box-shadow: var(--shadow);
 }
 
-.namespace-tabs {
-  display: flex;
-  border-bottom: 1px solid var(--line);
-  background: var(--page-soft);
-}
-
-.namespace-tabs a {
-  border-right: 1px solid var(--line);
-  padding: 9px 16px;
-  color: var(--muted);
-  font-size: 0.93rem;
-  font-weight: 700;
-}
-
-.namespace-tabs a.selected {
-  border-top: 3px solid var(--brand);
-  margin-top: -1px;
-  background: var(--page);
-  color: var(--brand-dark);
-}
-
 .category-box {
   display: flex;
   flex-wrap: wrap;
@@ -1315,12 +1294,6 @@ h1 {
 
   .comment-form button {
     justify-self: stretch;
-  }
-
-  .namespace-tabs a {
-    flex: 1;
-    padding: 8px 6px;
-    text-align: center;
   }
 
   .category-box,
