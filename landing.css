@@ -80,7 +80,7 @@ body {
   transform: translateY(-9vh);
   font-family: ui-monospace, "SFMono-Regular", "DejaVu Sans Mono", Menlo,
     Consolas, monospace;
-  font-size: clamp(5px, 1.72vw, 10.5px);
+  font-size: clamp(3.5px, 1.204vw, 7.35px);
   line-height: 1.04;
   white-space: pre;
   text-align: center;
@@ -186,7 +186,7 @@ body {
 /* ---- mobile ---- */
 @media (max-width: 600px) {
   .kitty {
-    font-size: clamp(4.6px, 4.7vw, 8px);
+    font-size: clamp(3.22px, 3.29vw, 5.6px);
     transform: translateY(-9vh);
     opacity: 0.9;
   }
