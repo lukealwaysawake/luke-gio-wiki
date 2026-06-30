@@ -21,10 +21,19 @@ const safeStorage = {
 
 const THEME_KEY = "luke-jio-wiki-theme";
 const LEGACY_THEME_KEY = "luke-gio-wiki-theme";
+const THEME_DEFAULT_VERSION_KEY = "luke-jio-wiki-theme-default-version";
+const CURRENT_THEME_DEFAULT_VERSION = "dark-default-2026-06-30";
 const savedTheme = safeStorage.get(THEME_KEY) || safeStorage.get(LEGACY_THEME_KEY);
-const initialTheme = savedTheme === "light" ? "light" : "dark";
+const savedDefaultVersion = safeStorage.get(THEME_DEFAULT_VERSION_KEY);
+const shouldApplyDarkDefault = savedDefaultVersion !== CURRENT_THEME_DEFAULT_VERSION;
+const initialTheme = shouldApplyDarkDefault ? "dark" : savedTheme === "light" ? "light" : "dark";
 root.classList.toggle("dark", initialTheme === "dark");
 if (button) button.textContent = initialTheme === "dark" ? "라이트" : "다크";
+if (shouldApplyDarkDefault) {
+  safeStorage.set(THEME_KEY, "dark");
+  safeStorage.set(LEGACY_THEME_KEY, "dark");
+  safeStorage.set(THEME_DEFAULT_VERSION_KEY, CURRENT_THEME_DEFAULT_VERSION);
+}
 
 button?.addEventListener("click", () => {
   root.classList.toggle("dark");
