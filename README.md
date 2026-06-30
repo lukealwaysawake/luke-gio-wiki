@@ -4,6 +4,11 @@
 
 Live: <https://luke-jio-wiki.vercel.app>
 
+## 페이지 구성
+
+- `/` (`index.html`): 핑크 ASCII Hello Kitty 애니메이션이 배경에 깔린 랜딩 페이지. "자세히보기"를 누르면 위키로 이동.
+- `/wiki.html`: 위키 본문(기존 메인 페이지).
+
 ## 반영된 핵심 날짜
 
 - 2026-05-19: 구리 심야 방문
@@ -14,10 +19,20 @@ Live: <https://luke-jio-wiki.vercel.app>
 
 ## 기능
 
+- 핑크 ASCII Hello Kitty 애니메이션 랜딩 페이지
 - 문서 상단 나무위키식 접이식 목차
 - 날짜별 데이트 기록 접기/펼치기
 - Vercel Blob 기반 서버 저장 댓글
 - Jio/Donghyun 궁합 느낌 일러스트 카드
+
+## ASCII 키티 재생성
+
+랜딩 배경 프레임은 `tools/hello-kitty.gif`에서 생성된 `kitty-frames.js`다. 소스 GIF를 바꿨다면:
+
+```bash
+pip install Pillow
+python3 tools/gen-ascii.py
+```
 
 ## Local preview
 
