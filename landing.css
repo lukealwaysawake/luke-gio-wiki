@@ -1,12 +1,12 @@
-/* Landing — dark editorial brand page with a large, visible ASCII figure. */
+/* Landing — dark rose editorial brand page with a large, visible ASCII figure. */
 
 :root {
-  --bg: #0a0a0b;
-  --bg-warm: #15130f;
-  --ink: #ece4d3; /* warm ivory */
-  --muted: rgba(236, 228, 211, 0.52);
-  --faint: rgba(236, 228, 211, 0.34);
-  --line: rgba(236, 228, 211, 0.16);
+  --bg: #12070d;
+  --bg-warm: #32101f;
+  --ink: #ffe3ed;
+  --muted: rgba(255, 213, 229, 0.54);
+  --faint: rgba(255, 213, 229, 0.34);
+  --line: rgba(255, 184, 212, 0.18);
   --mono: "Space Mono", ui-monospace, "SFMono-Regular", "JetBrains Mono",
     Menlo, Consolas, monospace;
 }
@@ -80,13 +80,13 @@ body {
   transform: translateY(-9vh);
   font-family: ui-monospace, "SFMono-Regular", "DejaVu Sans Mono", Menlo,
     Consolas, monospace;
-  font-size: clamp(3.5px, 1.204vw, 7.35px);
+  font-size: clamp(4.2px, 1.4448vw, 8.82px);
   line-height: 1.04;
   white-space: pre;
   text-align: center;
   letter-spacing: 0;
   opacity: 0.92;
-  filter: drop-shadow(0 0 30px rgba(244, 236, 217, 0.12));
+  filter: drop-shadow(0 0 32px rgba(255, 128, 174, 0.2));
 }
 
 /* scrim so the lower hero text stays legible over the figure */
@@ -99,9 +99,9 @@ body {
   background: linear-gradient(
     to bottom,
     transparent 28%,
-    rgba(10, 10, 11, 0.5) 50%,
-    rgba(10, 10, 11, 0.86) 70%,
-    rgba(10, 10, 11, 0.97) 100%
+    rgba(18, 7, 13, 0.48) 50%,
+    rgba(18, 7, 13, 0.86) 70%,
+    rgba(18, 7, 13, 0.97) 100%
   );
 }
 
@@ -153,7 +153,7 @@ body {
 .enter:hover,
 .enter:focus-visible {
   background: var(--ink);
-  color: #0a0a0b;
+  color: var(--bg);
   border-color: var(--ink);
   outline: none;
 }
@@ -186,7 +186,7 @@ body {
 /* ---- mobile ---- */
 @media (max-width: 600px) {
   .kitty {
-    font-size: clamp(3.22px, 3.29vw, 5.6px);
+    font-size: clamp(3.864px, 3.948vw, 6.72px);
     transform: translateY(-9vh);
     opacity: 0.9;
   }
@@ -196,6 +196,12 @@ body {
   .footer {
     justify-content: center;
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 360px) {
+  .kitty {
+    font-size: clamp(3.864px, 1.93vw, 6.72px);
   }
 }
 
